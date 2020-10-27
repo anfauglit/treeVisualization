@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script type="application/javascript">
+			function draw() {
+				var canvas = document.getElementById('tutorial');
+				if (canvas.getContext) {
+					var ctx = canvas.getContext('2d');
+
+					ctx.beginPath();
+					ctx.moveTo(50, 100);
+					ctx.lineTo(75,60);
+					ctx.lineTo(100,100);
+					ctx.stroke();
+
+					drawNode(ctx, 75, 60);
+					drawNode(ctx, 50, 100);
+					drawNode(ctx, 100, 100);
+				}
+			}
+
+		
+			function drawNode(ctx, x, y) {
+				ctx.fillStyle = 'black';
+				ctx.beginPath();
+				ctx.arc(x, y, 10, 0, Math.PI * 2, false);
+				ctx.fill();
+
+				ctx.beginPath();
+				ctx.fillStyle = 'cyan';
+				ctx.arc(x, y, 8, 0, Math.PI * 2, false);
+				ctx.fill();
+				
+				ctx.fillStyle = 'black';
+			}
+
+		</script>
+		<style type="text/css">
+			canvas { border: 1px solid black; }
+		</style>
+	</head>
+
+	<body onload="draw();">
+		<canvas id="tutorial" width = "150" height = "150"></canvas>
+	</body>
+</html>
